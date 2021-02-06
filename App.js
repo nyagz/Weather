@@ -8,8 +8,8 @@ import UnitsPicker from './components/UnitsPicker'
 import ReloadIcon from './components/ReloadIcon'
 import WeatherDetails from './components/WeatherDetails'
 import {colors} from './utils/index'
+import {WEATHER_API_KEY} from 'react-native-dotenv'
 
-const WEATHER_API_KEY = 'e93864dea4ca4cf127549370a2417669'
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 export default function App() {
