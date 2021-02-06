@@ -5,6 +5,8 @@ import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
 import WeatherInfo from './components/WeatherInfo'
 import UnitsPicker from './components/UnitsPicker'
+import ReloadIcon from './components/ReloadIcon'
+import WeatherDetails from './components/WeatherDetails'
 import {colors} from './utils/index'
 
 const WEATHER_API_KEY = 'e93864dea4ca4cf127549370a2417669'
@@ -51,14 +53,17 @@ export default function App() {
         <StatusBar style="auto" />
         <View style = {styles.main}>
           <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
+          <ReloadIcon load={load}/>
           <WeatherInfo currenWeather={currentWeather} />
         </View>
+        <WeatherDetails currentWether={currentWeather} unitSystem={unitSystem}/>
       </View>
     );
   } else if(errorMessage){
     return (
       <View style={styles.container}>
-        <Text>{errorMessage}</Text>
+        <ReloadIcon load={load}/>
+        <Text style={{textAlign: 'center', color: 'black'}}>Oh no, {errorMessage}, :(</Text>
         <StatusBar style="auto" />
       </View>
     );
